@@ -13,11 +13,13 @@ const BottomDrawer = () => {
 
   const [items, setItems] = useState([
     {
+      id: 1,
       name: "Bear",
       count: 2,
       description: "hello dude how are u?",
     },
     {
+      id: 2,
       name: "Bear 2",
       count: 3,
       description: "hello dude how are u?",
@@ -33,7 +35,7 @@ const BottomDrawer = () => {
       classes={{ paper: classes.drawer }}
     >
       {items.map((item) => (
-        <BottomDrawerItem item={item} />
+        <BottomDrawerItem item={item} key={item.id} />
       ))}
       <BottomDrawerTotal />
       <Button variant="contained" color="primary">

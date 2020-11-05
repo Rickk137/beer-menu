@@ -8,12 +8,12 @@ import { CartProvider } from "context/cartContext";
 import { CssBaseline } from "@material-ui/core";
 
 ReactDOM.render(
-  <React.StrictMode>
+  <React.Fragment>
     <CartProvider>
       <CssBaseline />
       <App />
     </CartProvider>
-  </React.StrictMode>,
+  </React.Fragment>,
   document.getElementById("root")
 );
 
