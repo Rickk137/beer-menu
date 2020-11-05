@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 
-import { useCartState } from "context/cartContext";
-
 import Items from "components/Items";
 
 import { makeStyles, useTheme } from "@material-ui/core/styles";
@@ -49,8 +47,6 @@ const useStyles = makeStyles({
 });
 
 function App() {
-  const state = useCartState();
-
   const classes = useStyles();
   const theme = useTheme();
 

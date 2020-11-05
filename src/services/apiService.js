@@ -8,6 +8,8 @@ export async function getBeers() {
   return axios.get("beers?per_page=80");
 }
 
-export default {
+const api = {
   getBeers,
 };
+
+export default api;

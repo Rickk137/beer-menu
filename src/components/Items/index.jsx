@@ -48,6 +48,7 @@ const Items = () => {
   };
 
   const sortItems = async (sort) => {
+    setSort(sort);
     let newItems = [...list];
     newItems.sort((a, b) => {
       if (sort === "") return a.id - b.id;
@@ -61,6 +62,7 @@ const Items = () => {
           return sort === "name_ascending" ? 1 : -1;
         }
       }
+      return 1;
     });
     setList(newItems);
   };
@@ -74,10 +76,6 @@ const Items = () => {
     setOpen(true);
   };
 
-  useEffect(() => {
-    sortItems(sort);
-  }, [sort]);
-
   return (
     <Box p={1}>
       <BearModal item={item} open={open} handleClose={() => setOpen(false)} />
@@ -85,7 +83,7 @@ const Items = () => {
         <FormControl className={classes.formControl}>
           <Select
             value={sort}
-            onChange={(e) => setSort(e.target.value)}
+            onChange={(e) => sortItems(e.target.value)}
             displayEmpty
             className={classes.selectEmpty}
             inputProps={{ "aria-label": "Without label" }}
