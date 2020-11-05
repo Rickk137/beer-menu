@@ -21,7 +21,7 @@ const BottomDrawer = () => {
     >
       <Box className={classes.itemsWrapper}>
         {cartState.items.map((item) => (
-          <BottomDrawerItem item={item} />
+          <BottomDrawerItem item={item} key={item.id} />
         ))}
       </Box>
       <BottomDrawerTotal />
