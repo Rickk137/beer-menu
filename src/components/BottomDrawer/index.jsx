@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Button, SwipeableDrawer } from "@material-ui/core";
+import React from "react";
+import { Button, SwipeableDrawer, Box } from "@material-ui/core";
 
 import { useCart, toggleDrawer } from "context/cartContext";
 
@@ -11,21 +11,6 @@ import classes from "./index.module.scss";
 const BottomDrawer = () => {
   const [cartState, cartDispatch] = useCart();
 
-  const [items, setItems] = useState([
-    {
-      id: 1,
-      name: "Bear",
-      count: 2,
-      description: "hello dude how are u?",
-    },
-    {
-      id: 2,
-      name: "Bear 2",
-      count: 3,
-      description: "hello dude how are u?",
-    },
-  ]);
-
   return (
     <SwipeableDrawer
       anchor={"bottom"}
@@ -34,9 +19,11 @@ const BottomDrawer = () => {
       onOpen={() => toggleDrawer(cartDispatch)}
       classes={{ paper: classes.drawer }}
     >
-      {items.map((item) => (
-        <BottomDrawerItem item={item} key={item.id} />
-      ))}
+      <Box className={classes.itemsWrapper}>
+        {cartState.items.map((item) => (
+          <BottomDrawerItem item={item} />
+        ))}
+      </Box>
       <BottomDrawerTotal />
       <Button variant="contained" color="primary">
         Confirm Payment

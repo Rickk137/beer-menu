@@ -1,0 +1,29 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wrapper {
+  width: 90%;
+  max-width: 400px;
+  padding: 20px;
+}
+
+.itemImage {
+  padding: 10px;
+  height: 150px;
+  border-radius: 10px;
+}
+
+.collapse {
+  width: 200px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.button {
+  display: block !important;
+  margin: auto !important;
+}

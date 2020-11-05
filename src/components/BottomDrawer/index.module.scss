@@ -2,3 +2,8 @@
   padding: 30px 5px;
   border-radius: 10px 10px 0 0;
 }
+
+.itemsWrapper {
+  max-height: 50vh;
+  overflow-y: auto;
+}

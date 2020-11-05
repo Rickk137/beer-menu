@@ -1,3 +1,10 @@
 .title {
   margin: 5px 0;
 }
+
+.collapse {
+  width: 100px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
