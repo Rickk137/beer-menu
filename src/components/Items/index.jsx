@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Items = () => {
+const Items = ({ food }) => {
   const [item, setItem] = useState({});
   const [open, setOpen] = useState(false);
 
@@ -35,17 +35,6 @@ const Items = () => {
   const [list, setList] = useState([]);
   const [loading, setLoading] = useState(false);
   const [sort, setSort] = useState("");
-
-  const getItems = async () => {
-    setLoading(true);
-    try {
-      const { data } = await getBeers();
-      setList(data);
-    } catch (e) {
-      console.log(e);
-    }
-    setLoading(false);
-  };
 
   const sortItems = async (sort) => {
     setSort(sort);
@@ -68,8 +57,19 @@ const Items = () => {
   };
 
   useEffect(() => {
+    const getItems = async () => {
+      setLoading(true);
+      try {
+        const { data } = await getBeers(food);
+        setList(data);
+      } catch (e) {
+        console.log(e);
+      }
+      setLoading(false);
+    };
+
     getItems();
-  }, []);
+  }, [food]);
 
   const onClick = (item) => {
     setItem(item);

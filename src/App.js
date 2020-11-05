@@ -13,7 +13,6 @@ import MoreIcon from "@material-ui/icons/More";
 import BottomDrawer from "components/BottomDrawer/index";
 
 import PropTypes from "prop-types";
-import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 import SwipeableViews from "react-swipeable-views";
 
@@ -80,13 +79,13 @@ function App() {
           onChangeIndex={handleChangeIndex}
         >
           <TabPanel value={value} index={0} dir={theme.direction}>
-            <Items />
+            <Items food={""} />
           </TabPanel>
           <TabPanel value={value} index={1} dir={theme.direction}>
-            <Typography>No item</Typography>
+            <Items food={"pizza"} />
           </TabPanel>
           <TabPanel value={value} index={2} dir={theme.direction}>
-            <Typography>No item</Typography>
+            <Items food={"steak"} />
           </TabPanel>
         </SwipeableViews>
       </Paper>
