@@ -1,4 +1,12 @@
 .wrapper {
   height: calc(100vh - 50px);
   overflow-y: auto;
+  flex-wrap: wrap;
+}
+.loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: auto;
 }
