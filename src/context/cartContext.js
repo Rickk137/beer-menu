@@ -1,12 +1,14 @@
-import React from 'react';
+import React from "react";
 
 var CartStateContext = React.createContext();
 var CartDispatchContext = React.createContext();
 
 function cartReducer(state, action) {
   switch (action.type) {
-    case 'SET_ITEMS':
+    case "SET_ITEMS":
       return { ...state, items: action.payload.items };
+    case "TOGGLE_DRAWER":
+      return { ...state, active: !state.active };
     default: {
       throw new Error(`Unhandled action type: ${action.type}`);
     }
@@ -15,6 +17,7 @@ function cartReducer(state, action) {
 
 function CartProvider({ children }) {
   var [state, dispatch] = React.useReducer(cartReducer, {
+    active: false,
     items: [],
   });
   return (
@@ -29,7 +32,7 @@ function CartProvider({ children }) {
 function useCartState() {
   var context = React.useContext(CartStateContext);
   if (context === undefined) {
-    throw new Error('useCartState must be used within a CartProvider');
+    throw new Error("useCartState must be used within a CartProvider");
   }
   return context;
 }
@@ -37,16 +40,33 @@ function useCartState() {
 function useCartDispatch() {
   var context = React.useContext(CartDispatchContext);
   if (context === undefined) {
-    throw new Error('useCartDispatch must be used within a CartProvider');
+    throw new Error("useCartDispatch must be used within a CartProvider");
   }
   return context;
 }
 
-export { CartProvider, useCartState, useCartDispatch, toggleSidebar };
+function useCart() {
+  return [useCartState(), useCartDispatch()];
+}
+
+export {
+  CartProvider,
+  useCartState,
+  useCartDispatch,
+  useCart,
+  toggleSidebar,
+  toggleDrawer,
+};
 
 // ###########################################################
-function toggleSidebar(dispatch,items) {
+function toggleSidebar(dispatch, items) {
   dispatch({
     items,
+  });
+}
+
+function toggleDrawer(dispatch) {
+  dispatch({
+    type: "TOGGLE_DRAWER",
   });
 }

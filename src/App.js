@@ -12,6 +12,7 @@ import Tab from "@material-ui/core/Tab";
 import LocalCafeIcon from "@material-ui/icons/LocalCafe";
 import LocalDiningIcon from "@material-ui/icons/LocalDining";
 import MoreIcon from "@material-ui/icons/More";
+import BottomDrawer from "components/BottomDrawer/index";
 
 const useStyles = makeStyles({
   root: {
@@ -45,9 +46,9 @@ function App() {
           <Tab icon={<LocalDiningIcon />} />
           <Tab icon={<MoreIcon />} />
         </Tabs>
-
         <Items />
       </Paper>
+      <BottomDrawer />
     </div>
   );
 }
