@@ -1,0 +1,19 @@
+$color-primary: #1bc074;
+$color-primary-light: #b1ebce;
+$color-dark-600: #0c1015;
+$color-dark-500: #1c232d;
+$color-dark-400: #2c3439;
+$color-dark-300: #707c84;
+$color-dark-200: #aab7c0;
+$color-dark-100: #e2e8ec;
+
+:export {
+  color-primary: $color-primary;
+  color-primary-light: $color-primary-light;
+  color-dark-600: $color-dark-600;
+  color-dark-500: $color-dark-500;
+  color-dark-400: $color-dark-400;
+  color-dark-300: $color-dark-300;
+  color-dark-200: $color-dark-200;
+  color-dark-100: $color-dark-100;
+}
